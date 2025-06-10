@@ -36,12 +36,12 @@ Here are the minimum and recommended hardware specs to run Chimera OS smoothly:
 
 ## 📦 Folder Structure Overview
 
-Project_ChimaeraOS/
--├── iso/ # Core ISO building files.
--├── dpp/ # Doomsday Protocol tools.
--├── scripts/ # Automation & install scripts.-
--├── config/ # UX style configs.
--├── install/ # Hard & soft partitioning logic.
--├── docs/ # Developer docs & roadmap.
--├── .vscode/ # Preconfigured VSCode workspace.
--└── README.md # You are here.
+Project_ChimaeraOS/  
+├── iso/ # Core ISO building files  
+├── dpp/ # Doomsday Protocol tools  
+├── scripts/ # Automation & install scripts  
+├── config/ # UX style configs  
+├── install/ # Hard & soft partitioning logic  
+├── docs/ # Developer docs & roadmap  
+├── .vscode/ # Preconfigured VSCode workspace  
+└── README.md # You are here  

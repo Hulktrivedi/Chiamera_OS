@@ -1,0 +1,15 @@
+profile_name: linux
+description: "Pure Linux experience for advanced users and developers"
+default_de: "XFCE"
+ux_theme: "Adwaita or Terminal-Dark"
+filesystem_emulation: "True Linux hierarchy"
+sandbox_profile: "developer-friendly"
+firewall_mode: "custom"
+performance_mode: "performance"
+accessibility:
+  high_contrast: false
+  large_fonts: false
+applications:
+  - "thunar"
+  - "vscode"
+  - "qterminal"

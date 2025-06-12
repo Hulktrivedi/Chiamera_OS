@@ -1,0 +1,15 @@
+profile_name: mac
+description: "Elegant macOS-like interface for creative professionals"
+default_de: "GNOME with MacOS extension pack"
+ux_theme: "Cupertino-dark"
+filesystem_emulation: "Volumes-style /Volumes/Home and /Volumes/Work"
+sandbox_profile: "restricted-desktop"
+firewall_mode: "strict"
+performance_mode: "battery_saver"
+accessibility:
+  high_contrast: true
+  large_fonts: true
+applications:
+  - "nautilus"
+  - "gimp"
+  - "brave-browser"

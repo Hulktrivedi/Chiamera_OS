@@ -1,0 +1,15 @@
+profile_name: windows
+description: "Familiar Windows-style UX for productivity and simplicity"
+default_de: "KDE Plasma"
+ux_theme: "Breeze-Dark with WinUI tweaks"
+filesystem_emulation: "Soft partitioning with C:/ and D:/ mapped folders"
+sandbox_profile: "tight-user"
+firewall_mode: "balanced"
+performance_mode: "standard"
+accessibility: 
+  high_contrast: false
+  large_fonts: false
+applications:
+  - "dolphin"
+  - "libreoffice"
+  - "firefox"

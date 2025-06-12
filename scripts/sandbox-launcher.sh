@@ -1,14 +1,19 @@
 #!/bin/bash
-# File: scripts/sandbox-launcher.sh
 
-CONFIG="$HOME/.chimera/sandbox-enabled.conf"
-APP="$1"
-ARGS="${@:2}"
+# Load active profile
+ACTIVE_PROFILE_PATH="configs/dpp-profiles/$(cat /etc/chimaera/active_profile).yml"
 
-if grep -Fxq "$APP" "$CONFIG"; then
-    echo "[⚠] Launching $APP in sandbox..."
-    firejail --profile=/etc/firejail/chimera-default.profile "$APP" $ARGS
+# Extract sandbox_profile using yq (YAML processor)
+SANDBOX_PROFILE=$(yq e '.sandbox_profile' "$ACTIVE_PROFILE_PATH")
+
+echo "[INFO] Launching app '$1' with sandbox profile: $SANDBOX_PROFILE"
+
+# Check if firejail profile exists
+FIREJAIL_PROFILE_PATH="configs/firejail/$SANDBOX_PROFILE.profile"
+
+if [[ -f "$FIREJAIL_PROFILE_PATH" ]]; then
+    firejail --profile="$FIREJAIL_PROFILE_PATH" "$1"
 else
-    echo "[ℹ] Launching $APP without sandbox..."
-    "$APP" $ARGS
+    echo "[WARN] Profile not found. Launching without sandbox."
+    "$1"
 fi

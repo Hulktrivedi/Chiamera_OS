@@ -6,18 +6,27 @@ set -e
 MOUNT_POINT="/mnt/chimera_root"
 RECOMMENDED_TOOLS_URL="https://raw.githubusercontent.com/Hulktrivedi/Chiamera_OS/main/tools/recommended_tools.txt"
 
+# Auto-detect disk and partition variables
+source ./scripts/hard_partitioning.sh
+
+# Confirm partition variables are set
+if [[ -z "$CHIMERA_ROOT_PART" ]]; then
+    echo "[!] Root partition not detected. Exiting."
+    exit 1
+fi
+
 echo "[*] Starting Chimaera OS Installer..."
 
 # Create mount point if it doesn't exist
 mkdir -p "$MOUNT_POINT"
 
-# STEP 1: Run partitioning scripts
+# STEP 1: Partition the disk
 echo "[+] Partitioning the disk..."
-./scripts/hard_partitioning.sh
+hard_partitioning
 
 # STEP 2: Mount partitions
-echo "[+] Mounting root partition..."
-mount /dev/sdX1 "$MOUNT_POINT"  # Replace with actual detection logic or variables
+echo "[+] Mounting root partition: $CHIMERA_ROOT_PART"
+mount "$CHIMERA_ROOT_PART" "$MOUNT_POINT"
 
 # STEP 3: Install base system (Debian-based for example)
 echo "[+] Installing base system..."
